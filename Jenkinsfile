@@ -14,6 +14,17 @@ pipeline {
                 }
             }
         }
+        stage('Deploy') {
+            when {
+                branch 'master'
+            }
+            steps {
+                docker.withRegistry('', 'dockerhub') {
+                    buildImage.push()
+                    buildImage.push("latest")
+                }
+            }
+        }
     }
     post {
         always {
