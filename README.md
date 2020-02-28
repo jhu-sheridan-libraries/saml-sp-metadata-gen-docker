@@ -1,4 +1,4 @@
-# SAML Metadata Generator
+# SAML Service Provider Metadata Generator
 
 A simple Docker container that uses the keygen.sh and metadata.sh scripts directly from the Shibboleth SP distribution.
 
