@@ -19,9 +19,11 @@ pipeline {
                 branch 'master'
             }
             steps {
-                docker.withRegistry('', 'dockerhub') {
-                    buildImage.push()
-                    buildImage.push("latest")
+                script {
+                    docker.withRegistry('', 'dockerhub') {
+                        buildImage.push()
+                        buildImage.push("latest")
+                    }
                 }
             }
         }
