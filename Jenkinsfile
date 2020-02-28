@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    buildImage = docker.build("${repository}:${tag}", "./nutch1")
+                    buildImage = docker.build("${repository}:${tag}", ".")
                 }
             }
         }
@@ -19,4 +19,5 @@ pipeline {
         always {
             sh ('docker system prune -a --force')
         }
-   
+    }
+}
